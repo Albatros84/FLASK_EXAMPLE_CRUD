@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Show task {{ task.name }}
+{% endblock %}
+
+{% block content %}
+    
+    {% for msg in get_flashed_messages() %}
+        <p>{{ msg }}</p>
+    {% endfor %}
+
+    <h1 id="">Task</h1>
+
+    <p>
+        <strong>Id:</strong> {{ task.id }}<br />
+        <strong>Name:</strong> {{ task.name }}
+        <strong>Desc:</strong> {{ task.description }}
+    </p>
+{% endblock %}

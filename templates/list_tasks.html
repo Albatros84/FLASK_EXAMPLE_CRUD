@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Tasks list
+{% endblock %}
+
+{% block content %}
+
+    {% for msg in get_flashed_messages() %}
+        <p>{{ msg }}</p>
+    {% endfor %}
+
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.id }} - {{ task.name }} (<a href="{{ url_for('delete_task', id=task.id, __METHOD_OVERRIDE__='DELETE') }}">Delete</a>)(<a href="{{ url_for('edit_task', id=task.id) }}">Edit</a>)(<a href="{{ url_for('show_task', id=task.id) }}">Show</a>)</li>				
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Edit task {{ task.name }}
+{% endblock %}
+
+{% block content%}
+    <form action="{{ url_for('update_task', id=task.id, __METHOD_OVERRIDE__='PUT') }}" method="post" accept-charset="utf-8">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="{{ task.name }}" id="name"/>
+            <label for="description">Description:</label>
+            <input type="text" name="desc" value="{{ task.description }}" id="desc"/>
+        </p>
+        <p><input type="submit" value="Save!"/></p>
+    </form>
+{% endblock %}
